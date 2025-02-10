@@ -1,0 +1,3 @@
+[submodule "Subjects/bootcamp_python"]
+	path = Subjects/bootcamp_python
+	url = https://github.com/42-AI/bootcamp_python
