@@ -5,6 +5,7 @@ from typing import List
 https://docs.python.org/3.9/library/functions.html?highlight=property#property
 """
 
+
 class Recipe:
     # Attributes
 
@@ -23,17 +24,20 @@ class Recipe:
     @property
     def cooking_lvl(self):
         return self._cooking_lvl
+
     @cooking_lvl.setter
-    def cooking_lvl(self, value : int):
+    def cooking_lvl(self, value: int):
         if not (1 <= value <= 5):
-            raise ValueError(f"cooking lvl value should be in range 1 to 5, got {value}")
+            raise ValueError(
+                f"cooking lvl value should be in range 1 to 5, got {value}")
         self._cooking_lvl = value
 
     @property
     def cooking_time(self):
         return self._cooking_time
+
     @cooking_time.setter
-    def cooking_time(self, value : int):
+    def cooking_time(self, value: int):
         if value < 0:
             raise ValueError(f"time only positive numbers, got {value}")
         self._cooking_time = value
@@ -41,13 +45,14 @@ class Recipe:
     @property
     def recipe_type(self):
         return self._recipe_type
+
     @recipe_type.setter
     def recipe_type(self, value: str):
-        allowed_types =  ['starter', 'lunch', 'dessert']
+        allowed_types = ['starter', 'lunch', 'dessert']
         if not (value in allowed_types):
-            raise ValueError(f"recipe type as to be {allowed_types}, got {value}")
+            raise ValueError(
+                f"recipe type as to be {allowed_types}, got {value}")
         self._recipe_type = value
-
 
     def __str__(self):
         return f"""_______[Recipe for {self.name}]_______
@@ -56,5 +61,3 @@ class Recipe:
     Ingredients: {'':>10}{self.ingredients}
     Recipe type: {'':>10}{self.recipe_type}
     Description: {'':>10}{self.description}"""
-
-

@@ -14,34 +14,37 @@ name (str): name of the book,
 • recipes_list (dict): a dictionnary with 3 keys: "starter", "lunch", "dessert".
 """
 
+
 class Book:
     def __init__(self,
                  name: str,
-                 last_update : datetime,
-                 creation_date : datetime,
-                 recipes_list : Dict[str, List[Recipe]]
+                 last_update: datetime,
+                 creation_date: datetime,
+                 recipes_list: Dict[str, List[Recipe]]
                  ):
-        self.name : str = name
-        self.last_update : datetime = last_update
-        self.creation_date : datetime = creation_date
-        self._recipes_list : Dict[str, List[Recipe]] = {
+        self.name: str = name
+        self.last_update: datetime = last_update
+        self.creation_date: datetime = creation_date
+        self._recipes_list: Dict[str, List[Recipe]] = {
             'starter': [],
             'lunch': [],
             'dessert': []
         }
-        self.recipes_list : Dict[str, List[Recipe]] = recipes_list
-    
+        self.recipes_list: Dict[str, List[Recipe]] = recipes_list
+
     @property
     def recipes_list(self):
         return self._recipes_list
+
     @recipes_list.setter
     def recipes_list(self, value: Dict[str, List[Recipe]]):
-        allowed_types =  ['starter', 'lunch', 'dessert']
+        allowed_types = ['starter', 'lunch', 'dessert']
         for key, values in value.items():
             if not key in allowed_types:
-                raise ValueError(f"recipe type as to be {allowed_types}, got {value}")
+                raise ValueError(
+                    f"recipe type as to be {allowed_types}, got {value}")
         self._recipes_list = value
-    
+
     def get_recipe_by_name(self, name):
         """Prints a recipe with the name \texttt{name} and returns the instance"""
         result_recipe = None
@@ -69,10 +72,9 @@ class Book:
             raise ValueError(f"Add recipe: {recipe} not a Recipe object")
         if self.recipes_list.get(recipe):
             self.recipes_list[recipe.recipe_type].append(recipe)
-        else: 
+        else:
             self.recipes_list[recipe.recipe_type] = [recipe]
         self.last_update = datetime.now()
-            
 
     def __str__(self):
         result = f"{self.name:_^40}\n\n"

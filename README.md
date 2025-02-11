@@ -30,7 +30,7 @@ classDiagram
     class set {
         <<built-in>>
     }
-    
+
     object <|-- int
     object <|-- float
     object <|-- complex
@@ -39,7 +39,7 @@ classDiagram
     object <|-- dict
     object <|-- tuple
     object <|-- set
-    
+
     note for object "Base class of all Python objects"
     note for int "Whole numbers (e.g., 1, 2, 3)"
     note for float "Decimal numbers (e.g., 3.14, -0.5)"
@@ -58,11 +58,11 @@ flowchart LR
     classDef basic fill:#90EE90,stroke:#006400,color:#000000
     classDef modify fill:#FFB6C1,stroke:#8B0000,color:#000000
     classDef query fill:#ADD8E6,stroke:#000080,color:#000000
-    
+
     Start["Dictionary Operations"] --> Basic["Basic Operations"]
     Start --> Modify["Modification"]
     Start --> Query["Query Operations"]
-    
+
     subgraph "Basic Operations"
         Basic --> Create["Creation
         d = {}"]
@@ -71,7 +71,7 @@ flowchart LR
         Basic --> Check["Check Existence
         key in d"]
     end
-    
+
     subgraph "Modification"
         Modify --> Add["Add/Update
         d[key] = value"]
@@ -80,7 +80,7 @@ flowchart LR
         Modify --> Clear["Clear All
         d.clear()"]
     end
-    
+
     subgraph "Query Operations"
         Query --> Keys["Get Keys
         d.keys()"]
@@ -89,7 +89,7 @@ flowchart LR
         Query --> Items["Get Items
         d.items()"]
     end
-    
+
     class Basic,Create,Access,Check basic
     class Modify,Add,Delete,Pop,Clear modify
     class Query,Keys,Values,Items query
@@ -104,10 +104,10 @@ flowchart LR
     classDef basic fill:#90EE90,stroke:#006400,color:#000000
     classDef advanced fill:#FFB6C1,stroke:#8B0000,color:#000000
     classDef output fill:#ADD8E6,stroke:#000080,color:#000000
-    
+
     Start["String Formatting"] --> Basic["Basic Methods"]
     Start --> Advanced["Advanced Methods<br><br>[[fill]align][sign][#][0][width][grouping_option][.precision][type]"]
-    
+
     subgraph "Basic Methods"
         Basic --> F["f-strings
         name = 'John'
@@ -117,7 +117,7 @@ flowchart LR
         Basic --> Percent["% Operator
         'Hello, %s!' % name"]
     end
-    
+
     subgraph "Advanced Methods"
         Advanced --> Align["Alignment
         '{:-^10}'.format(name)"]
@@ -128,7 +128,7 @@ flowchart LR
         Advanced --> Precision["Precision
         '{:.2f}'.format(3.14159)"]
     end
-    
+
     F --> Output1["Output:
     Hello, John!"]
     Format --> Output2["Output:
@@ -141,8 +141,12 @@ flowchart LR
     John"]
     Precision --> Output7["Output:
     3.14"]
-    
+
     class Basic,Format,F,Percent basic
     class Advanced,Align,Width,Precision,Fill advanced
     class Output1,Output2,Output3,Output4,Output5,Output6,Output7 output
 ```
+
+### Vector
+
+[ 📹 Youtube - Vectors - Essence of linear algebra](https://youtu.be/fNk_zzaMoSs?si=nukJqaKyoSkP-tFA)
