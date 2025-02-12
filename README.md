@@ -147,6 +147,14 @@ flowchart LR
     class Output1,Output2,Output3,Output4,Output5,Output6,Output7 output
 ```
 
-### Vector
+### Vectors
 
 [ 📹 Youtube - Vectors - Essence of linear algebra](https://youtu.be/fNk_zzaMoSs?si=nukJqaKyoSkP-tFA)
+🐍 [ Python - datamodel - numeric types](https://docs.python.org/3.9/reference/datamodel.html#emulating-numeric-types)
+
+### Builtins functions
+
+- 🐍 [ Python - Builtin Functions](https://docs.python.org/3.9/library/functions.html)
+    - https://docs.python.org/3.9/library/functions.html#vars
+    - https://docs.python.org/3.9/library/functions.html#dir
+
