@@ -158,3 +158,51 @@ flowchart LR
     - https://docs.python.org/3.9/library/functions.html#vars
     - https://docs.python.org/3.9/library/functions.html#dir
 
+### Decorators
+
+- 🐍 [ Python - Decorators](https://docs.python.org/3/glossary.html#term-decorator)
+
+```mermaid
+sequenceDiagram
+    participant C as Client Code
+    participant D as Decorator (@my_decorator)
+    participant W as Wrapper Function
+    participant O as Original Function
+    
+    Note over C,O: Normal Execution Flow
+    C->>+D: Call decorated function
+    D->>+W: Execute wrapper
+    Note over W: Before function code runs
+    W->>+O: Call original function
+    O-->>-W: Return from original
+    Note over W: After function code runs
+    W-->>-D: Return to decorator
+    D-->>-C: Final return to client
+    
+    Note over C,O: Equivalent Manual Decoration
+    C->>D: my_decorator(original_function)
+    D-->>C: Returns decorated function
+```
+
+Best Practices
+1. Always use functools.wraps to preserve the original function's metadata:
+
+```python
+from functools import wraps
+
+def my_decorator(func):
+    @wraps(func)  # Preserves function name, docstring, etc.
+    def wrapper(*args, **kwargs):
+        return func(*args, **kwargs)
+    return wrapper
+```
+
+2. Handle arguments properly using *args and **kwargs:
+
+```python
+def flexible_decorator(func):
+    def wrapper(*args, **kwargs):
+        print(f"Received args: {args}, kwargs: {kwargs}")
+        return func(*args, **kwargs)
+    return wrapper
+```
