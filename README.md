@@ -4,6 +4,18 @@
 
 ### Types
 
+<details>
+<summary>More infos</summary>
+
+- 🐍 [ Python - Built-in Types](https://docs.python.org/3/library/stdtypes.html)
+  - https://docs.python.org/3/library/stdtypes.html#truth-value-testing
+  - https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex
+  - https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex
+  - https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range
+  - https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str
+  - https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset
+  - https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
+
 ```mermaid
 classDiagram
     class object {
@@ -51,7 +63,14 @@ classDiagram
     note for set "Unordered unique elements (e.g., {1, 2, 3})"
 ```
 
+</details>
+
 #### Dict
+
+<details>
+<summary>More infos</summary>
+
+- 🐍 [ Python - Dictionaries ](https://docs.python.org/3/library/stdtypes.html#mapping-types-dict)
 
 ```mermaid
 flowchart LR
@@ -95,9 +114,14 @@ flowchart LR
     class Query,Keys,Values,Items query
 ```
 
+</details>
+
 ### Formating
 
-https://docs.python.org/3.9/library/string.html#format-specification-mini-language
+<details>
+<summary>More infos</summary>
+
+- 🐍 [ Python - Format Specification Mini-Language ](https://docs.python.org/3.9/library/string.html#format-specification-mini-language)
 
 ```mermaid
 flowchart LR
@@ -147,6 +171,8 @@ flowchart LR
     class Output1,Output2,Output3,Output4,Output5,Output6,Output7 output
 ```
 
+</details>
+
 ### Vectors
 
 [ 📹 Youtube - Vectors - Essence of linear algebra](https://youtu.be/fNk_zzaMoSs?si=nukJqaKyoSkP-tFA)
@@ -155,10 +181,13 @@ flowchart LR
 ### Builtins functions
 
 - 🐍 [ Python - Builtin Functions](https://docs.python.org/3.9/library/functions.html)
-    - https://docs.python.org/3.9/library/functions.html#vars
-    - https://docs.python.org/3.9/library/functions.html#dir
+  - https://docs.python.org/3.9/library/functions.html#vars
+  - https://docs.python.org/3.9/library/functions.html#dir
 
 ### Decorators
+
+<details>
+<summary>Decorators</summary>
 
 - 🐍 [ Python - Decorators](https://docs.python.org/3/glossary.html#term-decorator)
 
@@ -168,7 +197,7 @@ sequenceDiagram
     participant D as Decorator (@my_decorator)
     participant W as Wrapper Function
     participant O as Original Function
-    
+
     Note over C,O: Normal Execution Flow
     C->>+D: Call decorated function
     D->>+W: Execute wrapper
@@ -178,13 +207,14 @@ sequenceDiagram
     Note over W: After function code runs
     W-->>-D: Return to decorator
     D-->>-C: Final return to client
-    
+
     Note over C,O: Equivalent Manual Decoration
     C->>D: my_decorator(original_function)
     D-->>C: Returns decorated function
 ```
 
 Best Practices
+
 1. Always use functools.wraps to preserve the original function's metadata:
 
 ```python
@@ -197,7 +227,7 @@ def my_decorator(func):
     return wrapper
 ```
 
-2. Handle arguments properly using *args and **kwargs:
+2. Handle arguments properly using \*args and \*\*kwargs:
 
 ```python
 def flexible_decorator(func):
@@ -206,3 +236,44 @@ def flexible_decorator(func):
         return func(*args, **kwargs)
     return wrapper
 ```
+
+</details>
+
+### Context Managers
+
+<details>
+<summary>More infos</summary>
+
+- 🐍 [ Python - Context Managers](https://docs.python.org/3/library/stdtypes.html#typecontextmanager)
+
+```mermaid
+sequenceDiagram
+    participant C as Client Code
+    participant W as With Statement
+    participant CM as Context Manager
+
+    Note over C,CM: Normal Execution
+    C->>W: Enter with block
+    W->>CM: __enter__()
+    CM-->>W: Return value
+    W->>C: Assign to 'as' variable
+    Note over C: Execute block content
+    C->>W: Block complete
+    W->>CM: __exit__(None, None, None)
+
+    Note over C,CM: Exception Case
+    C->>W: Enter with block
+    W->>CM: __enter__()
+    CM-->>W: Return value
+    W->>C: Assign to 'as' variable
+    Note over C: Execute block content
+    C->>W: Raise Exception
+    W->>CM: __exit__(exc_type, exc_val, traceback)
+    alt __exit__ returns True
+        CM-->>W: Suppress exception
+    else __exit__ returns False
+        CM-->>W: Propagate exception
+    end
+```
+
+</details>
