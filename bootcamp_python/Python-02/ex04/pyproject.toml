@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my_minipack"
+version = "0.0.1"
+authors = [
+    {name = "rcutte", email = "rcutte@student.42.fr"},
+]
+description = "Progress bar and log decorator to monitor the progress of your loops"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["progress","bar", "progress bar", "log", "decorator"]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Students",
+    "Topic :: Education",
+    "Topic :: HowTo",
+    "Topic :: Package",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]

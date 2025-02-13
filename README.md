@@ -277,3 +277,38 @@ sequenceDiagram
 ```
 
 </details>
+
+### Package
+
+🐍 [Python - Creating a packgage](https://docs.python.org/3.9/distributing/index.html)
+    - https://packaging.python.org/en/latest/tutorials/packaging-projects/#packaging-python-projects
+    - https://docs.python.org/3/tutorial/modules.html#packages
+    - [Setuptools - Config](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html)
+
+```bash
+# Setup the env
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+```bash
+pip install setuptools wheel twine
+
+# Setup your package
+```
+
+```bash
+# After setting up the package - update build
+python3 -m pip install --upgrade build
+```
+
+```bash
+# Build the package
+python3 -m build
+```
+
+```bash
+
+📜 [Choose a license](https://choosealicense.com/)
+
+
