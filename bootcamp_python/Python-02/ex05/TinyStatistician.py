@@ -78,6 +78,17 @@ class TinyStatistician:
         variance = variance / len(input_lst)
         return variance
 
+    def std(self, input_lst: Union[List, numpy.ndarray]):
+        """Calculate standard deviation
+        The Standard Deviation is a measure of how spread out numbers are.
+
+        Its symbol is σ (the greek letter sigma)
+
+        The formula is easy: it is the square root of the Variance. 
+        https://www.mathsisfun.com/data/standard-deviation.html
+        """
+        return sqrt(self.var(input_lst))
+
 
 if __name__ == "__main__":
     t = TinyStatistician()
@@ -130,4 +141,15 @@ if __name__ == "__main__":
     print(lst_x)
     res = t.var(lst_x)
     # Expected: 12279.439999999999
+    print(f"Test: {res}")
+
+    print(f"{'Standard Deviation':_^60}")
+    lst_a = [600, 470, 170, 430, 300]
+    print(lst_a)
+    res = t.std(lst_a)
+    # Expected: 147.32...
+    print(f"Standard Deviation: {res}")
+    print(lst_x)
+    res = t.std(lst_x)
+    # Expected: 110.81263465868862
     print(f"Test: {res}")
