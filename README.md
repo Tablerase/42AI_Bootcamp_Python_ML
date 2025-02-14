@@ -2,6 +2,11 @@
 
 ## Bootcamp Python
 
+```bash
+# For bootcamp python
+export PYTHONPATH=/home/rcutte/Desktop/piscine_python_ml/bootcamp_python/
+```
+
 ### Types
 
 <details>
@@ -352,6 +357,12 @@ mindmap
 
 - Mean: https://www.mathsisfun.com/mean.html
 - Median: https://www.mathsisfun.com/median.html
+
+##### K-Means
+
+https://neptune.ai/blog/k-means-clustering
+https://www.geeksforgeeks.org/k-means-clustering-introduction/
+[![K-Means](https://upload.wikimedia.org/wikipedia/commons/e/ea/K-means_convergence.gif)](https://en.wikipedia.org/wiki/K-means_clustering)
 
 #### Dispersion
 
