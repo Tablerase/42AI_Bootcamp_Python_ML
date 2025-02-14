@@ -280,10 +280,7 @@ sequenceDiagram
 
 ### Package
 
-🐍 [Python - Creating a packgage](https://docs.python.org/3.9/distributing/index.html)
-    - https://packaging.python.org/en/latest/tutorials/packaging-projects/#packaging-python-projects
-    - https://docs.python.org/3/tutorial/modules.html#packages
-    - [Setuptools - Config](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html)
+🐍 [Python - Creating a packgage](https://docs.python.org/3.9/distributing/index.html) - https://packaging.python.org/en/latest/tutorials/packaging-projects/#packaging-python-projects - https://docs.python.org/3/tutorial/modules.html#packages - [Setuptools - Config](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html)
 
 ```bash
 # Setup the env
@@ -307,8 +304,66 @@ python3 -m pip install --upgrade build
 python3 -m build
 ```
 
-```bash
-
 📜 [Choose a license](https://choosealicense.com/)
 
+### Numpy
 
+https://numpy.org/doc/2.2/
+https://numpy.org/doc/2.2/user/absolute_beginners.html
+https://numpy.org/doc/2.2/reference/index.html
+
+### Matplotlib
+
+https://matplotlib.org/stable/contents.html
+https://matplotlib.org/stable/users/explain/quick_start.html
+
+## Math
+
+```mermaid
+mindmap
+    root((Mathematical<br/>Concepts))
+        Linear Algebra
+            Vectors
+            Matrices
+            Transformations
+            Eigenvalues
+            Determinants
+        Descriptive Statistics
+            Central Tendency
+                Mean
+                Median
+                Mode
+            Dispersion
+                Variance
+                Standard Deviation
+                Quartiles
+            Shape Description
+                Skewness
+                Kurtosis
+```
+
+### Visualization
+
+- [3D Geogebra](https://www.geogebra.org/3d)
+
+### Statistics
+
+#### Central Tendency
+
+- Mean: https://www.mathsisfun.com/mean.html
+- Median: https://www.mathsisfun.com/median.html
+
+#### Dispersion
+
+- Quartiles: https://www.mathsisfun.com/data/quartiles.html
+- Standard Deviation and Variance: https://www.mathsisfun.com/data/standard-deviation.html
+
+### Linear Algebra
+
+#### Vectors
+
+[ 📹 Youtube - Vectors - Essence of linear algebra](https://youtu.be/fNk_zzaMoSs?si=nukJqaKyoSkP-tFA)
+
+#### Matrices
+
+[ 📹 Youtube - Matrices - Essence of linear algebra](https://youtu.be/kYB8IZa5AuE?si=3Q9Q9QJvQ7qQ7qQ7)
