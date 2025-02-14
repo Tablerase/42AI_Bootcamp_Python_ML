@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from Python_02.ex03.csvreader import CsvReader
 
+# TODO: make fucntion to clusterize the data
+
 
 class KmeansClustering:
     def __init__(self, max_iter=20, ncentroid=5):
@@ -65,7 +67,10 @@ if __name__ == "__main__":
         headers = None
         with CsvReader(filepath, header=True) as f:
             data = np.array(f.getdata(), dtype=float)
-            data = data[1:]
+            height, width = data.shape
+            # print(height, width)
+            # print(data)
+            data = data[0:, 1:]
             headers = f.getheader()
 
         # Fit the K-means model
