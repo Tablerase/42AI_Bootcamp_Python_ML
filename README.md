@@ -316,15 +316,30 @@ python3 -m build
 https://numpy.org/doc/2.2/
 https://numpy.org/doc/2.2/user/absolute_beginners.html
 https://numpy.org/doc/2.2/reference/index.html
+https://numpy.org/doc/2.2/user/basics.broadcasting.html#basics-broadcasting
 
 ### Matplotlib
 
 https://matplotlib.org/stable/contents.html
 https://matplotlib.org/stable/users/explain/quick_start.html
 
+#### Plot Setup
+
+https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter
+
+##### Plot Colors and markers
+
+https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers
+https://matplotlib.org/stable/users/explain/colors/colormaps.html#sphx-glr-users-explain-colors-colormaps-py
+
 ## Math
 
 ```mermaid
+---
+title: Mathematical Concepts
+config:
+    theme: default
+---
 mindmap
     root((Mathematical<br/>Concepts))
         Linear Algebra
@@ -367,9 +382,28 @@ https://www.geeksforgeeks.org/k-means-clustering-introduction/
 #### Dispersion
 
 - Quartiles: https://www.mathsisfun.com/data/quartiles.html
+
+![Quartiles](https://www.mathsisfun.com/data/images/interquartile-range.svg)
+
 - Standard Deviation and Variance: https://www.mathsisfun.com/data/standard-deviation.html
 
+![Standard Deviation](https://www.mathsisfun.com/data/images/statistics-standard-deviation.gif)
+
 ### Linear Algebra
+
+#### L1 and L2
+
+- L1 - Manhattan Distance
+    - Also: Taxicab Distance
+    - Measures the distance between two points as if you were traveling along a city grid and can only move along the streets (no diagonals).
+    - May be preferred when dimensions are not of the same scale.
+- L2 - Euclidean Distance
+    - Measures the distance between two points as if you could travel through the air (no obstacles).
+    - More sensitive to differences in magnitude between dimensions.
+
+[Difference betwenn L1 and L2](https://medium.com/@datasciencejourney100_83560/difference-between-l1-manhattan-and-l2-euclidean-distance-c70b5da25fe0)
+
+![L1 and L2](https://miro.medium.com/v2/resize:fit:720/format:webp/1*LIoPQufLTF8xDgukFTej_g.png)
 
 #### Vectors
 

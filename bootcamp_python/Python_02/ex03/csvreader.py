@@ -17,7 +17,7 @@ class CsvReader():
         """Special method when called in 'with' - start of context manager"""
         try:
             self.file: FileIO = open(self.filename, 'r')
-            print(f"{'entering file':_^60}")
+            # print(f"{'entering file':_^60}")
 
             lines = self.file.readlines()
             self.header = lines[0].strip().split(self.sep)
