@@ -313,10 +313,10 @@ python3 -m build
 
 ### Numpy
 
-https://numpy.org/doc/2.2/
-https://numpy.org/doc/2.2/user/absolute_beginners.html
-https://numpy.org/doc/2.2/reference/index.html
-https://numpy.org/doc/2.2/user/basics.broadcasting.html#basics-broadcasting
+- https://numpy.org/doc/2.2/
+- https://numpy.org/doc/2.2/user/absolute_beginners.html
+- https://numpy.org/doc/2.2/reference/index.html
+- https://numpy.org/doc/2.2/user/basics.broadcasting.html#basics-broadcasting
 
 ### Matplotlib
 
@@ -331,6 +331,13 @@ https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html#matplot
 
 https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers
 https://matplotlib.org/stable/users/explain/colors/colormaps.html#sphx-glr-users-explain-colors-colormaps-py
+
+### Pandas
+
+- https://pandas.pydata.org/docs/getting_started/index.html#intro-to-pandas
+- https://pandas.pydata.org/docs/user_guide/10min.html#min
+- https://pandas.pydata.org/docs/
+- https://pandas.pydata.org/docs/user_guide/index.html
 
 ## Math
 
