@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python_version=3.8
+python_version=3.10
 
 function which_dl {
     # If operating system name contains Darwnin: MacOS. Else Linux
