@@ -1,3 +1,6 @@
 [submodule "Subjects/bootcamp_python"]
 	path = Subjects/bootcamp_python
 	url = https://github.com/42-AI/bootcamp_python
+[submodule "Subjects/bootcamp_ml"]
+	path = Subjects/bootcamp_ml
+	url = git@github.com:42-AI/bootcamp_machine-learning.git
