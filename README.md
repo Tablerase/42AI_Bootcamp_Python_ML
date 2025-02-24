@@ -4,7 +4,7 @@
 
 ```bash
 # For bootcamp python
-export PYTHONPATH=/home/rcutte/Desktop/piscine_python_ml/bootcamp_python/
+export PYTHONPATH=/home/rcutte/Desktop/piscine_python_ml/bootcamp_python
 ```
 
 ### Types
@@ -338,6 +338,172 @@ https://matplotlib.org/stable/users/explain/colors/colormaps.html#sphx-glr-users
 - https://pandas.pydata.org/docs/user_guide/10min.html#min
 - https://pandas.pydata.org/docs/
 - https://pandas.pydata.org/docs/user_guide/index.html
+
+## Bootcamp ML
+
+```bash
+# For importing the bootcamp_ml and bootcamp_python modules
+export PYTHONPATH=/home/rcutte/Desktop/piscine_python_ml
+```
+
+## Machine Learning
+
+- [coursera - Machine Learning](https://www.coursera.org/learn/machine-learning)
+- [youtube - Machine Learning](https://youtube.com/playlist?list=PLkDaE6sCZn6FNC6YRfRQc_FbeQrF8BwGI&feature=shared)
+
+```mermaid
+mindmap
+    root((Machine Learning))
+        (Supervised Learning)
+            (Classification)
+                (Binary/Multi-class)
+                (Image Recognition)
+                (Sentiment Analysis)
+            (Regression)
+                (Numerical Prediction)
+                (Continuous Values)
+        (Unsupervised Learning)
+            (Clustering)
+                (Group Similar Data)
+                (Customer Segmentation)
+            (Dimensionality Reduction)
+                (Feature Selection)
+                (Data Visualization)
+            (Anomaly Detection)
+                (Outlier Identification)
+                (Fraud Detection)
+        (Reinforcement Learning)
+            (Value-Based Methods)
+                (Q-learning)
+                (Deep Q-Networks)
+            (Policy-Based Methods)
+                (REINFORCE)
+                (PPO)
+            (Actor-Critic Methods)
+                (A2C)
+                (SAC)
+```
+
+### Types
+
+There are 4 types of machine learning:
+- Supervised Learning
+- Unsupervised Learning
+- Recommender Systems
+- Reinforcement Learning
+
+### Supervised Learning
+
+"Learn from right answers"
+
+Helps to predict the output when given an input.
+
+| Input (X) | Output (Y) | Application Examples |
+|-----------|------------|---------------------|
+| House Features | Price | Real Estate Pricing |
+| Email Content | Spam/Not Spam | Email Filtering |
+| Medical Images | Disease/No Disease | Medical Diagnosis |
+| Audio Files | Text Transcript | Speech Recognition |
+| Historical Prices | Future Prices | Stock Prediction |
+| Image of a product | Defects | Quality Control |
+
+![Image Classification vs Regression](https://images.javatpoint.com/tutorial/machine-learning/images/regression-vs-classification-in-machine-learning.png)
+
+#### Regression
+
+- Predict continuous valued output
+    - Predict a number: infinite number of values
+- E.g., predict house price
+
+##### Linear Regression
+
+- Simplest form of regression
+- Assumes linear relationship between input and output
+- E.g., predict house price based on size
+
+###### Univariate Linear Regression
+
+One feature (input variable) and one target variable (output variable).
+
+- $f_{w,b}(x) = w x + b$
+    - $w$ = slope
+    - $b$ = y-intercept
+
+###### Cost Function: Mean Squared Error (MSE)
+
+- Measures the average of the squares of the errors or deviations
+    - E.g., difference between predicted and actual value
+$$
+\begin{align*}
+    \text{Error} & = \text{Estimate} - \text{Actual value} = \hat{y} - y \\
+    \text{Total Errors} & = \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})^2 \\
+    \text{Mean Squared Error} & = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})^2 \\
+    \text{Cost Function} & = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})^2 \\
+    & \text{where } \frac{1}{2} \text{ is used to simplify the derivative} \\
+    & \hat{y}^{(i)} = f_{w,b}(x^{(i)}) = w x^{(i)} + b \\
+    J_{w,b} & = \frac{1}{2m} \sum_{i=1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)})^2 \\
+\end{align*} \\
+$$
+
+- Goal: minimize the cost function
+    - Find the best values for $w$ and $b$
+        - Simplified : $J_{w}$ = cost function with respect to $w$
+    - E.g., find the best fit line
+
+![Linear regression - Simplified cost function with respect to w](https://miro.medium.com/v2/resize:fit:1400/1*5WaPpymVDrAQ9LiTPv_kEg.png)
+
+#### Classification
+
+- Predict discrete valued output
+    - Predict categories or labels: small number of discrete values
+- E.g., predict spam or not spam
+
+### Unsupervised Learning
+
+"Learn from unlabeled data"
+
+Helps to find patterns in data.
+    - Only input data (no output data)
+
+| Input (X) | Application Examples |
+|-----------|---------------------|
+| Customer Data | Customer Segmentation |
+| News Articles | Topic Modeling |
+| Audio Files | Music Genre Classification |
+| Image Data | Image Clustering |
+| Sensor Data | Anomaly Detection |
+| DNA Sequences | Gene Expression Analysis |
+
+<img src="https://ars.els-cdn.com/content/image/1-s2.0-S0893395224002606-gr4.jpg" alt="Unsupervised Learning" />
+
+#### Clustering
+
+- Group similar data points together
+- E.g., customer segmentation
+
+#### Anomaly Detection
+
+- Identify unusual data points
+- E.g., fraud detection
+
+#### Dimensionality Reduction
+
+- Compress data using fewer numbers, while preserving the most important information
+- E.g., data visualization
+
+### Notation
+
+- $m$ = number of training examples
+- $x$ = input variable/features
+- $y$ = output variable/target
+- $(x, y)$ = one training example
+- $(x^{(i)}, y^{(i)})$ = $i^{th}$ training example
+    - $i^{th}$ = index into training set ($i$ is an index, not an exponent) $\neq$
+- $X$ = input matrix
+- $Y$ = output matrix
+- $f$ = target function / model
+- $w, b$ = parameters / coefficients / weights
+- $\hat{y}$ = predicted output / estimate for $y$
 
 ## Math
 
