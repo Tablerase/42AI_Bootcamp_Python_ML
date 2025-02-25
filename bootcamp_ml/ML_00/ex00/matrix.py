@@ -1,8 +1,3 @@
-# import numpy as np
-# import pandas as pd
-# import matplotlib.pyplot as plt
-import sys
-
 
 class Matrix:
     def __createMatrix(self, rows: int, columns: int) -> list[list[float]]:
@@ -53,9 +48,14 @@ class Matrix:
         self.data = new_data
         return self
 
-    def __check_compatibility(self, other: "Matrix"):
-        if not self.shape == other.shape:
-            raise ValueError(f"Incompatible matrix operations")
+    def __check_compatibility(self, other: "Matrix", all_dim: bool = True):
+        if all_dim == True:
+            if not self.shape == other.shape:
+                raise ValueError(f"Incompatible matrix operations")
+        else:
+            if not self.shape[1] == other.shape[0]:
+                raise ValueError(
+                    f"Incompatibility matrix operations: row len of first matrix not equal to column len of second matrix")
 
     # add : only matrices of same dimensions.
     def __add__(self, other: "Matrix"):
@@ -116,13 +116,41 @@ class Matrix:
         for i, row in enumerate(self.data):
             for j in range(self.shape[1]):
                 new_matrix[i][j] = row[j] * scalar
-        return new_matrix
+        return Matrix(new_matrix)
 
     def __rmul__(self, scalar: float):
         return self.__mul__(self, scalar)
 
-        # def __mul__(self, other: "Matrix"):
-        # raise ValueError("Shape not compatible to do matrix multiplication")
+    def __mul__(self, other: "Matrix"):
+        if isinstance(other, Matrix):
+            self.__check_compatibility(other=other, all_dim=False)
+            new_matrix = self.__createMatrix(self.shape[0], other.shape[1])
+            for i in range(self.shape[0]):
+                for j in range(other.shape[1]):
+                    new_matrix[i][j] = sum(
+                        self.data[i][k] * other.data[k][j] for k in range(self.shape[1]))
+            return Matrix(new_matrix)
+        else:
+            raise TypeError(
+                "Multiplication only supported with scalar or Matrix")
 
-        # def __rmul__(self, other: "Matrix"):
-        # return self.__mul__(other)
+    def __rmul__(self, other: "Matrix"):
+        if isinstance(other, (int, float)):
+            return self.__mul__(other)
+        else:
+            raise TypeError("Right multiplication only supported with scalar")
+
+
+class Vector(Matrix):
+    def __init__(self, data):
+        super().__init__(data)
+        if not (self.shape[1] == 1 and self.shape[0]) and not (self.shape[0] == 1 and self.shape[1]):
+            raise TypeError(f"Input array not a vector: {data}")
+
+    def __str__(self):
+        return f"Vector({self.data})"
+
+    def dot(self, v: "Vector"):
+        # use matrix multiplication
+        res = self * v
+        return res.data[0][0]

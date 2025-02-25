@@ -502,8 +502,12 @@ Helps to find patterns in data.
 - $X$ = input matrix
 - $Y$ = output matrix
 - $f$ = target function / model
-- $w, b$ = parameters / coefficients / weights
+- $w, b$ = $\theta$ = parameters / coefficients / weights
 - $\hat{y}$ = predicted output / estimate for $y$
+- $J$ = cost function
+- $h$ = hypothesis function
+    - $h_{w,b}(x) = w x + b$
+    - $h_{\theta}(x) = \theta x$
 
 ## Math
 
@@ -559,6 +563,20 @@ https://www.geeksforgeeks.org/k-means-clustering-introduction/
 ![Quartiles](https://www.mathsisfun.com/data/images/interquartile-range.svg)
 
 - Standard Deviation and Variance: https://www.mathsisfun.com/data/standard-deviation.html
+    - Variance: average of the squared differences from the Mean ($\bar{x}$)
+        $$
+        \begin{aligned}
+            \text{Variance} = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n}
+        \end{aligned}
+        $$
+
+    - Standard Deviation: square root of the Variance
+        - Measures the amount of variation or dispersion of a set of values
+        $$
+        \begin{aligned}
+            \text{Standard Deviation} = \sqrt{\text{Variance}}
+        \end{aligned}
+        $$
 
 ![Standard Deviation](https://www.mathsisfun.com/data/images/statistics-standard-deviation.gif)
 
@@ -582,6 +600,116 @@ https://www.geeksforgeeks.org/k-means-clustering-introduction/
 
 [ 📹 Youtube - Vectors - Essence of linear algebra](https://youtu.be/fNk_zzaMoSs?si=nukJqaKyoSkP-tFA)
 
+##### Operations
+
+- Dot product:
+    - $a \cdot b = a_1 b_1 + a_2 b_2 + \ldots + a_n b_n$
+
 #### Matrices
 
 [ 📹 Youtube - Matrices - Essence of linear algebra](https://youtu.be/kYB8IZa5AuE?si=3Q9Q9QJvQ7qQ7qQ7)
+
+##### Operations
+
+- Addition and Subtraction: https://www.khanacademy.org/math/algebra-home/alg-matrices/alg-adding-and-subtracting-matrices/a/adding-and-subtracting-matrices
+- Multiplication and division:
+    - scalar: https://www.khanacademy.org/math/algebra-home/alg-matrices/alg-multiplying-matrices-by-scalars/a/multiplying-matrices-by-scalars
+        - Case:
+        $$
+        \begin{aligned}
+        \greenD 2\bold A&=\greenD{2}\cdot{\left[\begin{array}{c}
+        10 &6 
+        \\\\
+        4& 3
+        \end{array}\right]}
+        \\\\
+        &={\left[\begin{array}{c}
+        \greenD2 \cdot10 &\greenD2\cdot 6 
+        \\\\
+        \greenD2\cdot 4& \greenD2\cdot3
+        \end{array}\right]}
+        \\\\
+        &=\left[\begin{array}{c}
+        20 &12 
+        \\\\
+        8& 6
+        \end{array}\right]
+        \end{aligned}
+        $$
+    - matrix: https://www.khanacademy.org/math/algebra-home/alg-matrices/alg-matrix-multiplication/v/matrix-multiplication-intro
+        - Rules:
+            - The number of columns in the first matrix must be equal to the number of rows in the second matrix.
+            - The resulting matrix will have the same number of rows as the first matrix and the same number of columns as the second matrix.
+            $$
+            \begin{aligned}
+                 \bold{A} \cdot \bold{B} &= \bold{AB}\\
+                 \blueD{m \times \goldD{n}} \cdot \goldD{n \times \blueD{p}} &= \blueD{m \times p}\\
+                 &\text{Equal: }\goldD{n}\\
+                 &\text{Dimension of AB: } \blueD{m, p}
+            \end{aligned}
+            $$
+        
+        - Structure:
+            $$
+            \begin{array}{rccc}
+            &\goldD{\vec{c_1}}&\goldD{\vec{c_2}}&\goldD{\vec{c_3}}\\
+            &\goldD\downarrow&\goldD\downarrow&\goldD\downarrow
+            \\\\
+            \begin{array}{c}\blueD{\vec{r_1}\rightarrow}
+            \\\blueD{\vec{r_2}\rightarrow}
+            \\\blueD{\vec{r_3}\rightarrow}\end{array}
+            &\left[\begin{array}{c}1\\6\\2\end{array}\right.
+            &\begin{array}{c}3\\3\\1\end{array}
+            &\left.\begin{array}{c}5\\7\\4\end{array}\right]
+            \end{array}
+            $$
+
+        - Case: $\greenD{c_{1,2}}$ is the dot product of $\blueD{\vec{a_1}}$ and $\goldD{\vec{b_2}}$
+            $$
+            \begin{array}{ccccccccc}
+            &&&&\goldD{\vec{b_1}}&\goldD{\vec{b_2}}
+            \\
+            &&&&\goldD\downarrow&\goldD\downarrow
+            \\\\
+            \begin{array}{c}\blueD{\vec{a_1}\rightarrow}
+            \\\blueD{\vec{a_2}\rightarrow}\end{array}
+            &\left[\begin{array}{c}1\\2\end{array}\right.
+            &\left.\begin{array}{c}7\\4\end{array}\right]
+            &\cdot
+            &\left[\begin{array}{c}3\\5\end{array}\right.
+            &\left.\begin{array}{c}3\\2\end{array}\right]
+            &=
+            &\left[\begin{array}{c}\blueD{\vec{a_1}}\cdot\goldD{\vec{b_1}}\\\blueD{\vec{a_2}}\cdot\goldD{\vec{b_1}}\end{array}\right.
+            &\left.\begin{array}{c}\blueD{\vec{a_1}}\cdot\goldD{\vec{b_2}}\\\blueD{\vec{a_2}}\cdot\goldD{\vec{b_2}}\end{array}\right]
+            \\\\
+            &A&&&B&&&C
+            \end{array}
+            $$
+            $$
+            \begin{array}{ccccc}
+            \left[\begin{array}{c}\bold{\blueD 1}\\2\end{array}\right.
+            &\left.\begin{array}{c}\bold{\blueD 7}\\4\end{array}\right]
+            &\cdot
+            &\left[\begin{array}{c}3\\5\end{array}\right.
+            &\left.\begin{array}{c}\bold{\goldD 3}\\\bold{\goldD 2}\end{array}\right]
+            &=
+            &\left[\begin{array}{c}\vec{a_1}\cdot\vec{b_1}\\\vec{a_2}\cdot\vec{b_1}\end{array}\right.
+            &\left.\begin{array}{c}\bold{\greenD{17}}\\\vec{a_2}\cdot\vec{b_2}\end{array}\right]
+            \end{array}
+            $$
+
+#### Linear interpolation
+
+- Linear interpolation is a method of curve fitting using linear polynomials to construct new data points within the range of a discrete set of known data points.
+    - E.g., estimating the value of a function between two known values
+- Formula:
+    - $y = y_1 + (x - x_1) \frac{(y_2 - y_1)}{(x_2 - x_1)}$
+    - $p$ = point to interpolate at $(x, y)$ 
+        - $x_1 < x < x_2$
+        - $y_1 = f(x_1)$
+        - $y_2 = f(x_2)$ ...
+- Formula for approximating a function:
+    - $p(x) = f(x_1) + (x - x_1) \frac{(f(x_2) - f(x_1))}{(x_2 - x_1)}$
+    - https://en.wikipedia.org/wiki/Linear_interpolation#Linear_interpolation_as_an_approximation
+
+![Linear interpolation](https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Interpolation_example_linear.svg/300px-Interpolation_example_linear.svg.png)
