@@ -1,6 +1,7 @@
 #!/bin/bash
 
 python_version=3.10
+packages="jupyter numpy pandas pycodestyle matplotlib pycodestyle scikit-learn"
 
 function which_dl {
     # If operating system name contains Darwnin: MacOS. Else Linux
@@ -27,7 +28,7 @@ function when_conda_exist {
         printf "\e[31mKO\e[0m\n"
         printf "\e[33mCreating 42AI environnment:\e[0m\n"
         conda update -n base -c defaults conda -y
-        conda create --name 42AI-$USER python=$python_version jupyter numpy matplotlib pandas pycodestyle -y
+        conda create --name 42AI-$USER python=$python_version $packages -y
     fi
 }
 function set_conda {
@@ -60,7 +61,7 @@ function set_conda {
     $CONDA config --set auto_activate_base false
     printf "\e[33mCreating 42AI-$USER environnment:\e[0m\n"
     $CONDA update -n base -c defaults conda -y
-    $CONDA create --name 42AI-$USER python=$python_version jupyter numpy matplotlib pandas pycodestyle -y
+    $CONDA create --name 42AI-$USER python=$python_version $packages -y
     printf "\e[33mLaunch the following command or restart your shell:\e[0m\n"
     if [ $MY_SHELL == "zsh" ]; then
         printf "\tsource ~/.zshrc\n"

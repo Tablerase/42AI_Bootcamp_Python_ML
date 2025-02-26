@@ -504,10 +504,10 @@ Helps to find patterns in data.
 - $f$ = target function / model
 - $w, b$ = $\theta$ = parameters / coefficients / weights
 - $\hat{y}$ = predicted output / estimate for $y$
-- $J$ = cost function
 - $h$ = hypothesis function
     - $h_{w,b}(x) = w x + b$
     - $h_{\theta}(x) = \theta x$
+- $J$ = cost function
 
 ## Math
 

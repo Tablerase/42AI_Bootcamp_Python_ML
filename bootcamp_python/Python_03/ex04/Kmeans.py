@@ -3,8 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from Python_02.ex03.csvreader import CsvReader
 
-# TODO: make fucntion to clusterize the data
-
 
 class KmeansClustering:
     def __init__(self, max_iter=20, ncentroid=5):

@@ -3,6 +3,7 @@ import numpy as np
 
 def predict_(x: np.ndarray, theta: np.ndarray):
     """Computes the vector of prediction y_hat from two non-empty numpy.array.
+
     Args:
         x: has to be an numpy.array, a one-dimensional array of size m.
         theta: has to be an numpy.array, a two-dimensional array of shape 2 * 1.
