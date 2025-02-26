@@ -452,6 +452,46 @@ $$
 
 ![Linear regression - Simplified cost function with respect to w](https://miro.medium.com/v2/resize:fit:1400/1*5WaPpymVDrAQ9LiTPv_kEg.png)
 
+###### Gradient Descent
+
+![Gradient Descent](https://cdn.analyticsvidhya.com/wp-content/uploads/2024/09/631731_P7z2BKhd0R-9uyn9ThDasA.webp)
+
+- Optimization algorithm used to minimize the cost function
+- Update parameters $w$ and $b$ to reduce the cost function
+- Repeat until convergence
+    - E.g., find the minimum of the cost function
+- Learning rate ($\alpha$) = step size
+    - always positive
+    - small: slow convergence
+    - large: may overshoot the minimum
+- Partion derivative ($\partial$) = slope of the cost function
+
+- Update rule:
+    - $w :=\greenD{w} - \blueD{\alpha} \goldD{\frac{\partial}{\partial w} J_{w,b}} = \greenD{w} - \blueD{\alpha} \goldD{ \frac{1}{m} \sum_{i=1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)}) x^{(i)}}$
+        - $\goldD{\text{Derivative (simplified)}}$
+        - $\blueD{\text{Learning rate / Step size}}$
+        - $\greenD{Parameter}$
+    - $b := b - \alpha \frac{\partial}{\partial b} J_{w,b} = b - \alpha \frac{1}{m} \sum_{i=1}^{m} (f_{w,b}(x^{(i)}) - y^{(i)})$
+
+- Calculate simultaneously and  Repeat until **convergence**:
+    - $tmp_w := w - \alpha \frac{\partial}{\partial w} J_{w,b}$
+    - $tmp_b := b - \alpha \frac{\partial}{\partial b} J_{w,b}$
+    - $w := tmp_w$
+    - $b := tmp_b$
+
+- Local minimum: point where the cost function is lower than its value at any neighboring points
+    - Gradient descent may converge to a local minimum
+    - As we get closer to the minimum, the derivative approaches zero
+        - At the minimum, the derivative is zero (flat slope)
+    - With squared error cost function, the cost function is convex
+        - Only one minimum
+    - Convex function: any local minimum is a global minimum
+- Global minimum: point where the cost function is lower than its value at any other point
+- Batch gradient descent: use all training examples in each iteration
+    - Computationally expensive for large datasets
+
+![Gradient Descent - Local and Global Minimum](https://nvsyashwanth.github.io/machinelearningmaster/assets/images/pitfalls_descent.png)
+![DeepLearning.ai - andrew ng - gradient descent and cost function](https://cdn.discordapp.com/attachments/1090612485188505713/1344302579974279220/1344301024168513587remix-1740577108033.png?ex=67c06ad7&is=67bf1957&hm=135e93e48f074b8d91b48addcc8556255d31c4a9253a58d7c0c65d5217d15297&)
 #### Classification
 
 - Predict discrete valued output
@@ -508,6 +548,8 @@ Helps to find patterns in data.
     - $h_{w,b}(x) = w x + b$
     - $h_{\theta}(x) = \theta x$
 - $J$ = cost function
+- $\alpha$ = learning rate
+- $\partial$ = partial derivative
 
 ## Math
 
