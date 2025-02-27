@@ -452,6 +452,11 @@ $$
 
 ![Linear regression - Simplified cost function with respect to w](https://miro.medium.com/v2/resize:fit:1400/1*5WaPpymVDrAQ9LiTPv_kEg.png)
 
+- Contour plot: visualize the cost function
+    - 2D plot: $w$ and $b$ on the x and y axes
+    - Color: cost function value
+    - Helps find the minimum of the cost function
+        
 ###### Gradient Descent
 
 ![Gradient Descent](https://cdn.analyticsvidhya.com/wp-content/uploads/2024/09/631731_P7z2BKhd0R-9uyn9ThDasA.webp)
@@ -492,6 +497,30 @@ $$
 
 ![Gradient Descent - Local and Global Minimum](https://nvsyashwanth.github.io/machinelearningmaster/assets/images/pitfalls_descent.png)
 ![DeepLearning.ai - andrew ng - gradient descent and cost function](https://cdn.discordapp.com/attachments/1090612485188505713/1344302579974279220/1344301024168513587remix-1740577108033.png?ex=67c06ad7&is=67bf1957&hm=135e93e48f074b8d91b48addcc8556255d31c4a9253a58d7c0c65d5217d15297&)
+
+###### Multiple Linear Regression
+
+Not multivariate linear regression (multiple target variables) but multiple features (input variables).
+
+- $f_{w,b}(x) = w_1 x_1 + w_2 x_2 + \ldots + w_n x_n + b = f_{\vec{w},b}(\vec{x}) = \vec{w} \cdot \vec{x} + b$
+    - $\vec{w} = [w_1, w_2, \ldots, w_n]$
+    - $\vec{x}^{\blueD{(i)}} = [x_1, x_2, \ldots, x_n]$ = feature vector of the $\blueD{i^{th}}$ training example
+    - $b$ is a number also known as the bias
+    - $x_{\goldD{j}}^{\blueD{(i)}}$ = value of feature $\goldD{j}$ in the $\blueD{i^{th}}$ training example
+    - $n$ = number of features
+
+###### Feature scaling:
+
+- Helps gradient descent converge more quickly
+    - E.g., scale features to have a similar range of values
+- Aim for a mean of zero and a range of -1 to 1
+    - $-1 \leq x_{\goldD{j}} \leq 1$ for each feature $\goldD{j}$
+- Mean normalization:
+    - subtract the mean and divide by the range
+    - $x_{\goldD{j}} = \frac{x_{\goldD{j}} - \mu_{\goldD{j}}}{\sigma_{\goldD{j}}}$
+        - $\mu_{\goldD{j}}$ = mean of feature $\goldD{j}$
+        - $\sigma_{\goldD{j}}$ = range of feature $\goldD{j}$
+
 #### Classification
 
 - Predict discrete valued output
