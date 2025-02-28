@@ -147,21 +147,36 @@ class MyLinearRegression():
         return MyLinearRegression.loss_(y, y_hat) * 2
 
     def plot_evolution_cost(self, x, y, num_point=1000):
-
-        theta0_min = self.thetas[0] - 50
-        theta0_max = self.thetas[0] + 50
+        theta0_min = self.thetas[0] - 15
+        theta0_max = self.thetas[0] + 15
         theta1_min = self.thetas[1] - 5
         theta1_max = self.thetas[1] + 5
         theta1_range = np.linspace(theta1_min, theta1_max, num_point)
-        Jw = np.array(theta1_range.shape)
+
+        # Create an array to store the cost values
+        Jw = np.zeros((num_point, 6))
+
+        # Save original theta1 to restore later
+        original_theta1 = self.thetas[1].copy()
+
         for i, w in enumerate(theta1_range):
-            self.thetas[1] = w
-            y_hat = self.predict_(x)
-            cost = MyLinearRegression.loss_(y, y_hat)
-            # TODO: create array for each cost function to plot the figure and display cost evolution by theta change
-            Jw[0][i] = cost
-        plt.plot(w, Jw)
-        plt.legend()
+            for j, b in enumerate(np.linspace(theta0_min, theta0_max, 6)):
+                self.thetas[1] = w
+                self.thetas[0] = b
+                y_hat = self.predict_(x)
+                cost = MyLinearRegression.loss_(y, y_hat)
+                Jw[i][j] = cost
+
+        self.thetas[1] = original_theta1
+        plt.grid(True)
+        plt.ylim(bottom=Jw.min() - 5, top=(Jw.max() / 7))
+        # Set x-axis limits
+        plt.xlim(left=theta1_min - 2, right=theta1_max + 2)
+        plt.plot(theta1_range, Jw)
+        plt.xlabel('Theta1')
+        plt.ylabel('Cost Function J(θ)')
+        plt.title('Cost Function Evolution')
+        plt.legend(['Cost Function'])
         plt.show()
 
 

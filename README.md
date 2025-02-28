@@ -456,6 +456,7 @@ $$
     - 2D plot: $w$ and $b$ on the x and y axes
     - Color: cost function value
     - Helps find the minimum of the cost function
+
         
 ###### Gradient Descent
 
@@ -498,17 +499,45 @@ $$
 ![Gradient Descent - Local and Global Minimum](https://nvsyashwanth.github.io/machinelearningmaster/assets/images/pitfalls_descent.png)
 ![DeepLearning.ai - andrew ng - gradient descent and cost function](https://cdn.discordapp.com/attachments/1090612485188505713/1344302579974279220/1344301024168513587remix-1740577108033.png?ex=67c06ad7&is=67bf1957&hm=135e93e48f074b8d91b48addcc8556255d31c4a9253a58d7c0c65d5217d15297&)
 
+- Multivariate Linear Gradient:
+    - $\nabla_{\vec{w}} J_{\vec{w},b} = \frac{1}{m} \sum_{i=1}^{m} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)}) \vec{x}^{(i)}$
+    - $\nabla(J) = \frac{1}{m} X'^T (X' \vec{w} - \vec{y})$ 
+        - $X'$ = input matrix with an additional column of ones for the bias
+            - $X' = \begin{bmatrix} 1 & x_1^{(1)} & x_2^{(1)} & \ldots & x_n^{(1)} \\ 1 & x_1^{(2)} & x_2^{(2)} & \ldots & x_n^{(2)} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 1 & x_1^{(m)} & x_2^{(m)} & \ldots & x_n^{(m)} \end{bmatrix}$
+        - $\vec{w}$ = weight vector = $[b, w_1, w_2, \ldots, w_n]$
+        - $\vec{y}$ = target vector
+        - $X'^T$ = transpose of $X'$
+    - $\nabla(J)$ Gradient vector
+
 ###### Multiple Linear Regression
 
 Not multivariate linear regression (multiple target variables) but multiple features (input variables).
+
+$$
+\begin{aligned}
+    \begin{bmatrix}
+    x_{\goldD{1}}^{\blueD{(1)}} & x_{\goldD{2}}^{\blueD{(1)}} & \ldots & x_{\goldD{n}}^{\blueD{(1)}} \\
+    x_{\goldD{1}}^{\blueD{(2)}} & x_{\goldD{2}}^{\blueD{(2)}} & \ldots & x_{\goldD{n}}^{\blueD{(2)}} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    x_{\goldD{1}}^{\blueD{(m)}} & x_{\goldD{2}}^{\blueD{(m)}} & \ldots & x_{\goldD{n}}^{\blueD{(m)}} \\
+    \end{bmatrix} \cdot 
+    \begin{bmatrix}
+        w_{\goldD{1}} \\
+        w_{\goldD{2}} \\
+        \vdots \\
+        w_{\goldD{n}} \\
+    \end{bmatrix} + b
+    \\
+    &\text{\goldD{n} = number of features} \\
+    &\text{\blueD{m} = number of training examples}
+\end{aligned}
+$$
 
 - $f_{w,b}(x) = w_1 x_1 + w_2 x_2 + \ldots + w_n x_n + b = f_{\vec{w},b}(\vec{x}) = \vec{w} \cdot \vec{x} + b$
     - $\vec{w} = [w_1, w_2, \ldots, w_n]$
     - $\vec{x}^{\blueD{(i)}} = [x_1, x_2, \ldots, x_n]$ = feature vector of the $\blueD{i^{th}}$ training example
     - $b$ is a number also known as the bias
     - $x_{\goldD{j}}^{\blueD{(i)}}$ = value of feature $\goldD{j}$ in the $\blueD{i^{th}}$ training example
-    - $n$ = number of features
-
 ###### Feature scaling:
 
 - Helps gradient descent converge more quickly
@@ -519,7 +548,16 @@ Not multivariate linear regression (multiple target variables) but multiple feat
     - subtract the mean and divide by the range
     - $x_{\goldD{j}} = \frac{x_{\goldD{j}} - \mu_{\goldD{j}}}{\sigma_{\goldD{j}}}$
         - $\mu_{\goldD{j}}$ = mean of feature $\goldD{j}$
+            - $\mu_{\goldD{j}} = \frac{1}{m} \sum_{i=1}^{m} x_{\goldD{j}}^{\blueD{(i)}}$
         - $\sigma_{\goldD{j}}$ = range of feature $\goldD{j}$
+            - $\sigma_{\goldD{j}} = \max(x_{\goldD{j}}) - \min(x_{\goldD{j}})$
+- Z_score normalization:
+    - subtract the mean and divide by the standard deviation
+    - $x_{\goldD{j}} = \frac{x_{\goldD{j}} - \mu_{\goldD{j}}}{\sigma_{\goldD{j}}}$
+        - $\mu_{\goldD{j}}$ = mean of feature $\goldD{j}$
+            - $\mu_{\goldD{j}} = \frac{1}{m} \sum_{i=1}^{m} x_{\goldD{j}}^{\blueD{(i)}}$
+        - $\sigma_{\goldD{j}}$ = standard deviation of feature $\goldD{j}$
+            - $\sigma_{\goldD{j}} = \sqrt{\frac{1}{m} \sum_{i=1}^{m} (x_{\goldD{j}}^{\blueD{(i)}} - \mu_{\goldD{j}})^2}$
 
 #### Classification
 
@@ -581,6 +619,8 @@ Helps to find patterns in data.
 - $\partial$ = partial derivative
 
 ## Math
+
+- [Math - symbols](https://en.wikipedia.org/wiki/Glossary_of_mathematical_symbols)
 
 ```mermaid
 ---
